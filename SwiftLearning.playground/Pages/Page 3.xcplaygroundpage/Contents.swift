@@ -1,10 +1,10 @@
 /*: [Previous](@previous)             [Next](@next)
 
  
- - Experiment: Write a function that compares two Rank values by comparing their raw values. Also add a color() method to Suit that returns “black” for spades and clubs, and returns “red” for hearts and diamonds.
+ - Experiment: Write a function that compares two Rank values by comparing their raw values. Also add a color() method to Suit that returns “black” for spades and clubs, and returns “red” for hearts and diamonds. Write a function that returns an array containing a full deck of cards, with one card of each combination of rank and suit.
  
  */
-enum Rank: Int {
+enum Rank: Int, CaseIterable {
     case ace = 1
     case two, three, four, five, six, seven, eight, nine, ten
     case jack, queen, king
@@ -25,7 +25,7 @@ enum Rank: Int {
     }
 }
 
-enum Suits: Int {
+enum Suits: Int, CaseIterable {
     case spades
     case clubs
     case hearts
@@ -39,6 +39,30 @@ enum Suits: Int {
             return "red"
         }
     }
+}
+
+struct Card {
+    let rank: Rank
+    let suits: Suits
+    
+    func simpleDescription() -> String {
+        return "\(rank.simpleDescription()) of \(suits)"
+    }
+}
+
+func fullDeck() -> [Card] {
+    var deck: [Card] = []
+    for rank in Rank.allCases {
+        for suit in Suits.allCases {
+            deck.append(Card(rank: rank, suits: suit))
+        }
+    }
+    return deck
+}
+
+let deck = fullDeck()
+for card in deck {
+    print(card.simpleDescription())
 }
 
 let queen = Rank.queen
