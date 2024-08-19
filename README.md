@@ -1,6 +1,6 @@
 # Swift Projects
 
-Welcome to the Swift Projects repository! 🎉
+Welcome to my Swift Learning repository! 🎉
 
 This repository is a collection of various Swift projects that I’ve developed as part of my journey to master the Swift programming language. Each project serves as both a learning exercise and a demonstration of different Swift concepts and techniques.
 
