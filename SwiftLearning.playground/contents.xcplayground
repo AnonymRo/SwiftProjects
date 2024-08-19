@@ -2,8 +2,10 @@
 <playground version='6.0' target-platform='ios' display-mode='rendered' buildActiveScheme='true' importAppTypes='true'>
     <pages>
         <page name='Introduction'/>
-        <page name='Page 2'/>
         <page name='Page 3'/>
         <page name='Page 4'/>
+        <page name='Page 5'/>
+        <page name='Exercises - The Basics'/>
+        <page name='Exercises - Strings'/>
     </pages>
 </playground>
