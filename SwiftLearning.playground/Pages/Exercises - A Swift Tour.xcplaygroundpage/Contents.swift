@@ -3,7 +3,7 @@
  
  - Experiment:
  Make another subclass of NamedShape called Circle that takes a radius and a name as arguments to its initializer. \
-Implement an area() and a simpleDescription() method on the Circle class.
+ Implement an area() and a simpleDescription() method on the Circle class.
  */
 import Foundation
 
@@ -52,7 +52,7 @@ enum Rank: Int, CaseIterable {
     case ace = 1
     case two, three, four, five, six, seven, eight, nine, ten
     case jack, queen, king
-
+    
     func simpleDescription() -> String {
         switch self {
         case .ace:
@@ -198,7 +198,7 @@ extension Int: ExampleProtocol {
     mutating func adjust() {
         self += 42
     }
- }
+}
 print(7.simpleDescription)
 
 /*:
