@@ -210,3 +210,36 @@ greet(person: ["name": "John"])
 greet(person: ["name" : "Jane", "location" : "Cupertino"])
 
 /* Deffered actions */
+var score = 1
+if score < 10 {
+    defer {
+        print(score)
+    }
+    defer {
+        print("The score is: ", terminator: "")
+    }
+    score += 5
+}
+
+/* API availability */
+@available(macOS 10.12, *)
+struct ColorPreference {
+    var bestColor = "Blue"
+}
+
+func chooseBestColor() -> String {
+    guard #available(macOS 10.13, *) else {
+        return "gray"
+    }
+    let colors = ColorPreference()
+    return colors.bestColor
+}
+print(chooseBestColor())
+
+if #available(iOS 10, *) {
+    //fallback code
+}
+
+if #unavailable(iOS 10) {
+    //fallback code
+}
