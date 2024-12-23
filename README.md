@@ -10,7 +10,7 @@ The primary goal of this repository is to provide a practical and hands-on appro
 
 ## Projects
 
-In this repository, you will find a variety of Swift projects, ranging from simple utilities to more complex applications. Each project is organized in its own directory and includes a brief description of its purpose and functionality. Feel free to explore, experiment, and learn from the code!
+In this repository, you will find a variety of Swift projects, ranging from simple utilities to more complex applications. Feel free to explore, experiment, and learn from the code!
 
 ## Contributing
 
