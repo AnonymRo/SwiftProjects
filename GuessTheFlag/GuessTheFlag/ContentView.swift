@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
+    private let maxRounds = 8
+    
     @State private var showingScore = false
     @State private var showingFinalScore = false
     @State private var scoreTitle = ""
@@ -16,7 +18,8 @@ struct ContentView: View {
     @State private var correctAnswer = Int.random(in: 0...2)
     @State private var userScore = 0
     @State private var roundCounter = 1
-    private let maxRounds = 8
+    @State private var rotationAngle = [0.0, 0.0, 0.0]
+    @State private var tappedFlag: Int? = nil
     
     var body: some View {
         ZStack {
@@ -24,7 +27,7 @@ struct ContentView: View {
                 .init(color: Color(red: 0.1, green: 0.2, blue: 0.45), location: 0.3),
                 .init(color: Color(red: 0.76, green: 0.15, blue: 0.26), location: 0.3),
             ], center: .top, startRadius: 200, endRadius: 400)
-                .ignoresSafeArea()
+            .ignoresSafeArea()
             
             VStack {
                 Spacer()
@@ -48,11 +51,17 @@ struct ContentView: View {
                     
                     ForEach(0..<3) { number in
                         Button {
-                            // flag was tapped
+                            withAnimation(.easeInOut(duration: 0.5)) {
+                                rotationAngle[number] += 360
+                                tappedFlag = number
+                            }
                             flagTapped(number)
                         } label: {
                             FlagImageView(imageName: countries[number])
                         }
+                        .rotationEffect(.degrees(rotationAngle[number]))
+                        .opacity(tappedFlag == nil || tappedFlag == number ? 1.0 : 0.5)
+                        .scaleEffect(tappedFlag == nil || tappedFlag == number ? 1.0 : 0.8)
                     }
                 }
                 
@@ -77,7 +86,7 @@ struct ContentView: View {
         } message: {
             Text("Your final score is \(userScore) out of \(maxRounds)")
         }
-}
+    }
     
     func flagTapped(_ number: Int) {
         if number == correctAnswer {
@@ -109,6 +118,8 @@ struct ContentView: View {
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        rotationAngle = [0.0, 0.0, 0.0]
+        tappedFlag = nil
     }
 }
 
