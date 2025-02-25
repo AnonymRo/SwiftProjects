@@ -1,0 +1,422 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "%lld Quotes" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Quote"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%lld Quotes"
+                }
+              }
+            }
+          }
+        },
+        "ro" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Citate"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Citat"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Citate"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "author" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "autor"
+          }
+        }
+      }
+    },
+    "Author" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autor"
+          }
+        }
+      }
+    },
+    "Back" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Înapoi"
+          }
+        }
+      }
+    },
+    "Book Title" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Titlul cărții"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anulează"
+          }
+        }
+      }
+    },
+    "Completed" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completat"
+          }
+        }
+      }
+    },
+    "Create" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Creează"
+          }
+        }
+      }
+    },
+    "Create Genre" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Creează gen"
+          }
+        }
+      }
+    },
+    "Create new Genre" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Creează un gen nou"
+          }
+        }
+      }
+    },
+    "Date Added" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data adăugării"
+          }
+        }
+      }
+    },
+    "Date Completed" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data finalizării"
+          }
+        }
+      }
+    },
+    "Date Started" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data începeri"
+          }
+        }
+      }
+    },
+    "Enter your first book" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adaugă prima ta carte"
+          }
+        }
+      }
+    },
+    "Filter on title or author" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filtrează după title sau autor"
+          }
+        }
+      }
+    },
+    "Genres" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genuri"
+          }
+        }
+      }
+    },
+    "In Progress" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "În progres"
+          }
+        }
+      }
+    },
+    "My Books" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cărțile mele"
+          }
+        }
+      }
+    },
+    "Name" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nume"
+          }
+        }
+      }
+    },
+    "New Book" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carte nouă"
+          }
+        }
+      }
+    },
+    "New Genre" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gen nou"
+          }
+        }
+      }
+    },
+    "On Shelf" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pe raft"
+          }
+        }
+      }
+    },
+    "Page" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pagină"
+          }
+        }
+      }
+    },
+    "page #" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pagina nr."
+          }
+        }
+      }
+    },
+    "Page: %@" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pagină: %@"
+          }
+        }
+      }
+    },
+    "Quotes" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Citate"
+          }
+        }
+      }
+    },
+    "Rating" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Evaluare"
+          }
+        }
+      }
+    },
+    "Recommended by" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recomandat de"
+          }
+        }
+      }
+    },
+    "Set the genre color" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setează culoarea genului"
+          }
+        }
+      }
+    },
+    "Sort by %@" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sortează după %@"
+          }
+        }
+      }
+    },
+    "status" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "status"
+          }
+        }
+      }
+    },
+    "Status" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stare"
+          }
+        }
+      }
+    },
+    "Summary" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rezumat"
+          }
+        }
+      }
+    },
+    "title" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "titlu"
+          }
+        }
+      }
+    },
+    "Title" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Titlu"
+          }
+        }
+      }
+    },
+    "Update" : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizează"
+          }
+        }
+      }
+    },
+    "You need to create some genres first." : {
+      "localizations" : {
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trebuie să creezi mai întâi câteva genuri."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
