@@ -27,6 +27,10 @@ class Book {
     @Relationship(inverse: \Genre.books)
     var genres: [Genre]?
     
+    // Saves a references to the actual photo
+    @Attribute(.externalStorage)
+    var bookCover: Data?
+    
     init(
         title: String,
         author: String,
