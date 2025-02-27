@@ -6,26 +6,50 @@
 //
 
 import Foundation
+import SwiftData
 
-@MainActor
-class UserViewModel: ObservableObject {
-    @Published var users: [User] = []
-    @Published var isLoading = false
-    @Published var errorMessage: String?
+@Observable
+class UserViewModel {
+    var modelContext: ModelContext? = nil
+    var users: [User] = []
+    var isLoading: Bool = false
+    var errorMessage: String?
     
-    func fetchUsers() {
-        isLoading = true
-        errorMessage = nil
+    func loadUsersFromPersistenceStorage() {
+        let fetchDescriptor = FetchDescriptor<User>(
+            sortBy: [SortDescriptor(\.name)]
+        )
         
-        Task {
+        let storedUsers = (try? (modelContext?.fetch(fetchDescriptor) ?? [])) ?? []
+        if !storedUsers.isEmpty {
+            self.users = storedUsers
+        } else {
+            Task {
+                await fetchUsers()
+            }
+        }
+        
+        func fetchUsers() async {
+            isLoading = true
+            errorMessage = nil
+            
             do {
                 let jsonURL = "https://www.hackingwithswift.com/samples/friendface.json"
-                users = try await UserService.shared.fetchUserData(from: jsonURL)
+                let fetchedUsers = try await UserService.shared.fetchUserData(from: jsonURL)
+                
+                // Ensure all SwiftData updates happen on the main thread
+                await MainActor.run {
+                    for user in fetchedUsers {
+                        modelContext?.insert(user)
+                    }
+                    try? modelContext?.save()
+                    self.users = fetchedUsers
+                }
             } catch {
-                errorMessage = error.localizedDescription
+                self.errorMessage = error.localizedDescription
             }
             
-            isLoading = false
+            self.isLoading = false
         }
     }
 }

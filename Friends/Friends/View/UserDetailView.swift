@@ -36,13 +36,13 @@ struct UserDetailView: View {
                     .font(.footnote)
                     .foregroundStyle(.blue)
                 
-                if !user.friends.isEmpty {
+                if !(user.friends?.isEmpty ?? false) {
                     Text("Friends")
                         .font(.headline)
                         .padding(.top, 10)
                     
                     VStack(alignment: .leading, spacing: 8) {
-                        ForEach(user.friends) { friend in
+                        ForEach(user.friends ?? []) { friend in
                             HStack {
                                 Image(systemName: "person.fill")
                                     .foregroundStyle(.blue)

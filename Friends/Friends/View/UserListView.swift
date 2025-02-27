@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct UserListView: View {
-    @StateObject private var viewModel = UserViewModel()
+    @Environment(\.modelContext) private var modelContext
+    @State var viewModel = UserViewModel()
     
     var body: some View {
         NavigationView {
@@ -31,7 +33,7 @@ struct UserListView: View {
                                     .font(.footnote)
                                     .foregroundColor(.blue)
                                 
-                                Text("Friends: \(user.friends.count)")
+                                Text("Friends: \(user.friends?.count ?? 0)")
                                     .font(.footnote)
                             }
                             .padding()
@@ -43,7 +45,8 @@ struct UserListView: View {
                 }
             }
             .onAppear {
-                viewModel.fetchUsers()
+                viewModel.modelContext = modelContext
+                viewModel.loadUsersFromPersistenceStorage()
             }
             .navigationTitle("Users")
         }
@@ -52,4 +55,5 @@ struct UserListView: View {
 
 #Preview {
     UserListView()
+        .modelContainer(for: User.self, inMemory: true)
 }
