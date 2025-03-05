@@ -10,23 +10,17 @@ import MapKit
 
 struct MapView: View {
     
-    @State private var locations = [Location]()
-    @State private var selectedPlace: Location?
-    
-    let startPosition = MapCameraPosition.region(
-        MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 56, longitude: -3),
-            span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
-        )
-    )
+    @State private var viewModel = ViewModel()
+    @State private var mapStyleConfig = MapStyleConfig()
+    @State private var pickMapStyle = false
     
     var body: some View {
         MapReader { proxy in
-            Map(initialPosition: startPosition) {
-                ForEach(locations) { location in
+            Map(initialPosition: viewModel.startPosition) {
+                ForEach(viewModel.locations, id: \.id) { location in
                     Annotation(location.name, coordinate: location.coordinate) {
                         Button {
-                            selectedPlace = location
+                            viewModel.selectedPlace = location
                         } label: {
                             Image(systemName: "star.circle")
                                 .resizable()
@@ -41,18 +35,35 @@ struct MapView: View {
             }
             .onTapGesture { position in
                 if let coordinate = proxy.convert(position, from: .local) {
-                    let newLocation = Location(id: UUID(), name: "New Location", description: "", latitude: coordinate.latitude, longitude: coordinate.longitude)
-                    locations.append(newLocation)
+                    viewModel.addLocation(at: coordinate)
                 }
             }
-            .sheet(item: $selectedPlace) { place in
-                NewLocationView(location: place) { newLocation in
-                    if let index = locations.firstIndex(of: place) {
-                        locations[index] = newLocation
-                    }
+            .sheet(item: Binding(
+                get: { viewModel.selectedPlace },
+                set: { viewModel.selectedPlace = $0 }
+            )) { place in
+                NewLocationView(location: place) {
+                    viewModel.update(location: $0)
                 }
-                .presentationDetents([.fraction(0.3), .medium, .large])
+                .presentationDetents([.medium, .large])
                 .presentationDragIndicator(.visible)
+            }
+            .mapStyle(mapStyleConfig.mapStyle)
+            .safeAreaInset(edge: .bottom, alignment: .trailing) {
+                Button {
+                    pickMapStyle.toggle()
+                } label: {
+                    // TODO: Change the icon to something more suggestive
+                    Image(systemName: "globe.americas.fill")
+                        .imageScale(.large)
+                }
+                .padding(8)
+                .background(.thickMaterial)
+                .clipShape(.circle)
+                .sheet(isPresented: $pickMapStyle) {
+                    MapStyleView(mapStyleConfig: $mapStyleConfig)
+                        .presentationDetents([.height(275)])
+                }
             }
         }
     }

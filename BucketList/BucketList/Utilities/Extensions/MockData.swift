@@ -15,8 +15,4 @@ extension Location {
                                   latitude: 51.501,
                                   longitude: -0.141)
 #endif
-    
-    static func ==(lhs: Location, rhs: Location) -> Bool {
-        lhs.id == rhs.id
-    }
 }
