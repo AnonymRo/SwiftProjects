@@ -10,6 +10,7 @@ import Observation
 import MapKit
 import CoreLocation
 import _MapKit_SwiftUI
+import LocalAuthentication
 
 extension MapView {
     @Observable
@@ -23,6 +24,9 @@ extension MapView {
                 span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
             )
         )
+        
+        var authenticationError: String?
+        var isShowingAuthError = false
         
         init() {
             do {
@@ -43,9 +47,11 @@ extension MapView {
         }
         
         func addLocation(at point: CLLocationCoordinate2D) {
-            let newLocation = Location(id: UUID(), name: "New Location", description: "", latitude: point.latitude, longitude: point.longitude)
-            locations.append(newLocation)
-            save()
+            authenticate {
+                let newLocation = Location(id: UUID(), name: "New Location", description: "", latitude: point.latitude, longitude: point.longitude)
+                self.locations.append(newLocation)
+                self.save()
+            }
         }
         
         func update(location: Location) {
@@ -55,6 +61,29 @@ extension MapView {
                 locations[index] = location
             }
             save()
+        }
+        
+        func authenticate(success: @escaping () -> Void) {
+            let context = LAContext()
+            var error: NSError?
+            
+            if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Please authenticate") {
+                    successAuth, authError in
+                    
+                    DispatchQueue.main.async {
+                        if successAuth {
+                            success()
+                        } else {
+                            self.authenticationError = authError?.localizedDescription ?? "Unknown error"
+                            self.isShowingAuthError.toggle()
+                        }
+                    }
+                }
+            } else {
+                authenticationError = error?.localizedDescription ?? "Biometric authentication is not available"
+                isShowingAuthError.toggle()
+            }
         }
     }
 }

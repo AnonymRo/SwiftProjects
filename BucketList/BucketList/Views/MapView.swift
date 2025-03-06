@@ -38,6 +38,11 @@ struct MapView: View {
                     viewModel.addLocation(at: coordinate)
                 }
             }
+            .alert("Authentication failed!", isPresented: $viewModel.isShowingAuthError, actions: {
+                Button("Ok", role: .cancel) { }
+            }, message: {
+                Text(viewModel.authenticationError ?? "An unknown error occurred.")
+            })
             .sheet(item: Binding(
                 get: { viewModel.selectedPlace },
                 set: { viewModel.selectedPlace = $0 }
@@ -50,20 +55,23 @@ struct MapView: View {
             }
             .mapStyle(mapStyleConfig.mapStyle)
             .safeAreaInset(edge: .bottom, alignment: .trailing) {
-                Button {
-                    pickMapStyle.toggle()
-                } label: {
-                    // TODO: Change the icon to something more suggestive
-                    Image(systemName: "globe.americas.fill")
-                        .imageScale(.large)
+                VStack {
+                    Button {
+                        pickMapStyle.toggle()
+                    } label: {
+                        Image(systemName: "map.fill")
+                            .imageScale(.large)
+                    }
+                    .padding(9)
+                    .background(.thickMaterial)
+                    .clipShape(.circle)
+                    .sheet(isPresented: $pickMapStyle) {
+                        MapStyleView(mapStyleConfig: $mapStyleConfig)
+                            .presentationDetents([.height(275)])
+                            .presentationDragIndicator(.visible)
+                    }
                 }
-                .padding(8)
-                .background(.thickMaterial)
-                .clipShape(.circle)
-                .sheet(isPresented: $pickMapStyle) {
-                    MapStyleView(mapStyleConfig: $mapStyleConfig)
-                        .presentationDetents([.height(275)])
-                }
+                .padding()
             }
         }
     }
