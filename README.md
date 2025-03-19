@@ -13,6 +13,8 @@ The primary goal of this repository is to provide a practical and hands-on appro
 In this repository, you will find a variety of Swift projects, ranging from simple utilities to more complex applications. Feel free to explore, experiment, and learn from the code!
 
 ## 100 Days of SwiftUI
+
+I've completed Paul Hudson's 100 Days of SwiftUI course with merits. It may be a small achievement, but I'm proud of myself and I think it's important to take a moment and appreciate our journey.
 ![certificate](https://github.com/user-attachments/assets/5101b22c-4903-47f2-bcce-f6e8ffae3ef7)
 
 ## Contributing
