@@ -12,6 +12,9 @@ The primary goal of this repository is to provide a practical and hands-on appro
 
 In this repository, you will find a variety of Swift projects, ranging from simple utilities to more complex applications. Feel free to explore, experiment, and learn from the code!
 
+## 100 Days of SwiftUI
+![certificate](https://github.com/user-attachments/assets/5101b22c-4903-47f2-bcce-f6e8ffae3ef7)
+
 ## Contributing
 
 If you have suggestions for improvements, new project ideas, or if you’d like to contribute in any way, please feel free to open an issue or submit a pull request. Collaboration is always welcome!
